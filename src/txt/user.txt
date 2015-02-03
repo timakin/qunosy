@@ -1,0 +1,20 @@
+プログラマになること#9 三大美徳
+Vagrant でサクッとビットコイン環境(bitcoind)を作る
+今からVirtual DOMを勉強します！
+Milkcocoa iOSテスト版を使ってiOSとWebサイトを連動させてみるミニマム構成〜IoTっぽいことをする入門
+世界で一番ピュアな論理型プログラミング言語Hilbert(ヒルベルト)をRubyで作った.
+Vagrantで起動したCentOSにmean環境構築して起動まで
+Capistrano3でUnicorn+Nginxな環境にRailsをデプロイする:初心者向け
+Swiftの関数はファーストクラスである--とは限らない
+画像認識のWebサービスAPI「ReKognition」を使ってみた
+ackを使って一括置換
+scikit-learnとgensimでニュース記事を分類する
+[Rails] RSpecによるBDD（振舞駆動開発）の基本 [SporkとGuardも]
+knife-soloによるChefの実行
+Rubyでのハマりポイント
+RailsでAmazon S3上に画像アップロードする
+ vim使っているrubyistで、これ入れていないのはヤバいプラグインまとめ 9個　(2013-10-04更新)
+fetch と pullの違い
+これからテストを書き始めたい人のための Rails+RSpec+Spork+FactoryGirl チュートリアル（その２）
+RMagickのインストールでエラー
+Rails3.2+RSpec2+Spork+GuardでTDD環境を構築しよう！
