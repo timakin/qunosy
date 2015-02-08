@@ -5,7 +5,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
 
 class MakeDictWithGensim:
-  def __init__(self, csvName):
+  def __init__(self):
     self.dict_from_nouncsv = self.readNounCsv("src/csv/mecabNoun.csv")
     #self.dict_from_nouncsv = self.readNounCsv("src/csv/mecabNounUser.csv")
 
@@ -46,6 +46,7 @@ if __name__ == '__main__':
   maked = MakeDictWithGensim()
   estimator = RandomForestClassifier()
   whole_data = maked.vec_to_data()
+  print(whole_data)
   data_train = []
   label_train = [1, 2, 2, 7, 8, 8, 8, 7, 10, 10, 8, 9, 2, 9, 9, 10, 9, 8, 10, 10, 10, 10, 1, 10, 1, 1, 2, 2, 8, 1, 1, 2, 1, 10, 9, 1, 10, 2, 10, 2, 1, 1, 2, 1, 1, 10, 10, 1, 1, 9, 1, 1, 2, 1, 2, 1, 3, 1, 1, 2, 1, 9, 8, 1, 1, 10, 9, 4, 9, 7, 1, 2, 1, 7, 1, 1, 1, 8, 8, 10, 10, 1, 10, 7, 10, 0, 4, 5, 6, 6, 7, 2, 1, 1, 2, 1, 1, 4, 2, 9, 1, 10, 5, 1, 1, 1, 1, 9, 1, 1, 10, 10, 1, 1, 9, 2, 10, 1, 10, 3, 2, 7, 9, 2, 1, 3, 0, 3, 1, 8, 1, 1, 1, 5, 10, 10, 5, 2, 2, 1, 5, 1, 2] 
   for num in range(0, 143):
