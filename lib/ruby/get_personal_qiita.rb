@@ -1,3 +1,4 @@
+# coding: utf-8
 require 'json'
 require 'open-uri'
 require 'csv'
@@ -38,6 +39,6 @@ end
 
 if __FILE__ == $0
   obj = PersonalQiita.new()
-  #obj.user_with_directlink("timakin")
-  obj.articles_with_directlink(30, 50)
+  obj.user_with_directlink("timakin")
+  obj.articles_with_directlink(50, 50)
 end
