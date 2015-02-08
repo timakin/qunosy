@@ -24,10 +24,10 @@ class MakeDictWithGensim:
 
   def makeDict(self, txtName):
     dictionary = corpora.Dictionary(self.dict_from_nouncsv)
-    if txtName == "qiitadic":
-      dictionary.filter_extremes(no_below=3, no_above=0.2)
-    else:
+    if txtName == "qiitadicUser":
       dictionary.filter_extremes(no_below=2, no_above=0.2)
+    else:
+      dictionary.filter_extremes(no_below=3, no_above=0.2)
     #  print(dictionary.token2id)
     dictionary.save_as_text("src/txt/"+txtName+".txt")
     #dictionary.save_as_text("src/txt/qiitadicUser.txt")
@@ -50,6 +50,8 @@ if __name__ == '__main__':
   whole_data = maked.vec_to_data("qiitadic")
   makedUser = MakeDictWithGensim('mecabNounUser')
   user_data = makedUser.vec_to_data('qiitadicUser')
+  makedLatest = MakeDictWithGensim('mecabNounLatest')
+  latest_data = makedLatest.vec_to_data('qiitadicLatest')
 
   estimator = RandomForestClassifier()
   data_train = []
@@ -61,10 +63,9 @@ if __name__ == '__main__':
 
   estimator.fit(data_train, label_train)
   #print(estimator.score(data_test_s, label_test_s))
-  
+  #estimator.fit(data_train, label_train)
 
-#  
-#  estimator.fit(data_train, label_train)
-
-  label_predict = estimator.predict(user_data)
-  print(label_predict)
+  label_predict_user = estimator.predict(user_data)
+  label_predict_latest = estimator.predict(latest_data)
+  print(label_predict_user)
+  print(label_predict_latest)
