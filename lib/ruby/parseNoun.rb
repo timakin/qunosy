@@ -42,9 +42,11 @@ end
 
 if __FILE__ == $0
   mecab = ParseNoun.new
-  #texts = mecab.parse_file("src/txt/article.txt")
-  texts = mecab.parse_file("src/txt/user.txt")
+  texts = mecab.parse_file("src/txt/article.txt")
   noun = mecab.parse_noun(texts)
   mecab.to_csv("mecabNoun", noun)
-  #mecab.to_csv("mecabNounUser", noun)
+
+  texts = mecab.parse_file("src/txt/user.txt")
+  noun = mecab.parse_noun(texts)
+  mecab.to_csv("mecabNounUser", noun)
 end
