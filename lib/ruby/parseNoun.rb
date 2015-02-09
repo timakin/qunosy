@@ -44,9 +44,9 @@ end
 if __FILE__ == $0
   # parsing and writing noun of article titles in every cases.
   mecab = Qunosy::ParseNoun.new
-  texts = mecab.parse_file("src/txt/article.txt")
-  noun = mecab.parse_noun(texts)
-  mecab.to_csv("mecabNoun", noun)
+  # texts = mecab.parse_file("src/txt/article.txt")
+  # noun = mecab.parse_noun(texts)
+  # mecab.to_csv("mecabNoun", noun)
 
   texts = mecab.parse_file("src/txt/user.txt")
   noun = mecab.parse_noun(texts)
