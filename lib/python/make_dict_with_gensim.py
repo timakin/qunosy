@@ -8,8 +8,7 @@ from collections import Counter
 class MakeDictWithGensim:
   def __init__(self, csvName):
     self.dict_from_nouncsv = self.readNounCsv("src/csv/"+csvName+".csv")
-    #self.dict_from_nouncsv = self.readNounCsv("src/csv/mecabNounUser.csv")
-
+ 
   def readNounCsv(self, file):
     rawStopList = 'for a of the and to in [ ] + - , . ` / : ; | ( ) 〜 こと ごと １ & お ~ ... () :: 0235 " \' !'
     stoplist = set(rawStopList.split())
@@ -29,9 +28,7 @@ class MakeDictWithGensim:
       dictionary.filter_extremes(no_below=2, no_above=0.2)
     else:
       dictionary.filter_extremes(no_below=3, no_above=0.2)
-    #  print(dictionary.token2id)
     dictionary.save_as_text("src/txt/"+txtName+".txt")
-    #dictionary.save_as_text("src/txt/qiitadicUser.txt")
     return dictionary
 
   def vec_to_data(self,txtName):
@@ -47,6 +44,7 @@ class MakeDictWithGensim:
     return data
 
 if __name__ == '__main__':
+  # Making corpus dictionary for training, user and latest articles' clustering.
   maked = MakeDictWithGensim('mecabNoun')
   whole_data = maked.vec_to_data("qiitadic")
   makedUser = MakeDictWithGensim('mecabNounUser')
@@ -59,16 +57,11 @@ if __name__ == '__main__':
   label_train = [1, 2, 2, 7, 8, 8, 8, 7, 10, 10, 8, 9, 2, 9, 9, 10, 9, 8, 10, 10, 10, 10, 1, 10, 1, 1, 2, 2, 8, 1, 1, 2, 1, 10, 9, 1, 10, 2, 10, 2, 1, 1, 2, 1, 1, 10, 10, 1, 1, 9, 1, 1, 2, 1, 2, 1, 3, 1, 1, 2, 1, 9, 8, 1, 1, 10, 9, 4, 9, 7, 1, 2, 1, 7, 1, 1, 1, 8, 8, 10, 10, 1, 10, 7, 10, 0, 4, 5, 6, 6, 7, 2, 1, 1, 2, 1, 1, 4, 2, 9, 1, 10, 5, 1, 1, 1, 1, 9, 1, 1, 10, 10, 1, 1, 9, 2, 10, 1, 10, 3, 2, 7, 9, 2, 1, 3, 0, 3, 1, 8, 1, 1, 1, 5, 10, 10, 5, 2, 2, 1, 5, 1, 2] 
   for num in range(0, 143):
     data_train.append(whole_data[num])
-  #data_train_s, data_test_s, label_train_s, label_test_s = train_test_split(data_train, label_train, test_size=0.5)
-  #estimator.fit(data_train_s, label_train_s)
-
   estimator.fit(data_train, label_train)
-  #print(estimator.score(data_test_s, label_test_s))
-  #estimator.fit(data_train, label_train)
 
+  # Check 10 newest articles which match user favorite
   label_predict_user = estimator.predict(user_data)
   label_predict_latest = estimator.predict(latest_data)
-  #print(label_predict_user)
   label_predicted_list_user = []
   label_predicted_list_latest = []
   
@@ -84,6 +77,8 @@ if __name__ == '__main__':
       keys.append(key)
       labels.append(label)
       i = i+1
+
+  # Display recommended article titles
   f = open('src/txt/latest.txt', 'r', encoding='utf-8')
   rows = csv.reader(f)
   articles = []
@@ -91,6 +86,3 @@ if __name__ == '__main__':
     articles.append(row)
   for key in keys:
     print(articles[key])
-
-  #print(label_predicted_list_user)
-  #print(label_predicted_list_latest)
