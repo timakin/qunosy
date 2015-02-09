@@ -32,7 +32,7 @@ module Qunosy
     end 
 
     def to_csv(name, noun)
-      CSV.open("src/csv/#{name}.csv", 'a') do |csv| 
+      CSV.open(File.expand_path("../../src/csv/#{name}.csv", __FILE__), 'a') do |csv| 
         for n in noun
           csv << n
         end
@@ -48,11 +48,11 @@ if __FILE__ == $0
   # noun = mecab.parse_noun(texts)
   # mecab.to_csv("mecabNoun", noun)
 
-  texts = mecab.parse_file("src/txt/user.txt")
+  texts = mecab.parse_file(File.expand_path("../../src/txt/user.txt"), __FILE__))
   noun = mecab.parse_noun(texts)
   mecab.to_csv("mecabNounUser", noun)
 
-  texts = mecab.parse_file("src/txt/latest.txt")
+  texts = mecab.parse_file(File.expand_path("../../src/txt/latest.txt"))
   noun = mecab.parse_noun(texts)
   mecab.to_csv("mecabNounLatest", noun)
 end

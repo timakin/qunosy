@@ -16,7 +16,7 @@ module Qunosy
     end 
 
     def to_txt(name, titles)
-      f = open("src/txt/#{name}.txt", "a") 
+      f = open(File.expand_path("../../src/txt/#{name}.txt", __FILE__), "a") 
       titles.each do |title|
         f.puts title
       end
