@@ -87,5 +87,12 @@ if __name__ == '__main__':
   articles = []
   for row in rows:
     articles.append(row)
+  f2 = open(os.path.normpath(os.path.join(base, '../../src/txt/latest_url.txt')), 'r', encoding='utf-8')
+  rows = csv.reader(f2)
+  urls = []
+  for row in rows:
+    urls.append(row)
   for key in keys:
+    print("======================================================")
     print(articles[key])
+    print(urls[key])

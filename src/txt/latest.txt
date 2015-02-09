@@ -1,3 +1,44 @@
+如何使用 VCR
+Railsで開発している時によく使う／たまに使うメソッド集
+現在との時間差を計算する(後追い)
+BeagleBone BlackのUbuntu14.04.1にEclipse Orionをインストールする
+モナドについて勉強したことの整理（個別モナド）
+org.hamcrest.Matchersを利用するとSecurityExceptionが発生する問題
+SAFluteのセットアップ
+PHPの文字数検知 Tips
+Oculusの映像をモニター用に出力する
+JUnitのテストの階層化と@InjectMocks
+実行しているシェルスクリプトのディレクトリパスを取得
+Ruby東京プレゼンテーション2015 にいってきた
+フォームエディタでタブオーダー(TabIndex)を一気に付け直す
+みんなの為のMySQLまとめ（７）
+Perlで作るユーザデーモン
+【VS2005】環境設定
+JenkinsのjQueryプラグインでTableSorterをつかう
+Raspberry Pi 2 Model B で物理モデル音源を鳴らす
+django on ubuntu via vagrant host
+JAX-RS(Jersey)とJPAで簡単なサンプル
+【gulp】livereloadxを実行する
+Visual Basic 14.0の新機能
+これからGo言語を書く人への三種の神器
+SSHで接続してるけどサーバ本体(物理)がどれか分からない時にはejectコマンド
+CSVのデータを使って散布図とヒストグラムを作る
+SpriteKitを試してみる３　衝突を演出してみる
+Swiftで現在からの経過時間を計算するNSDateのExtension
+BeagleBone BlackのUbuntu14.04.1にNode.jsとnpmをインストールする
+RaspberryPi 2にSnappy Ubuntu Coreを入れて色々試してみる
+Node.js+Express+MongoDBでWeb APIをつくる
+デザイナはWeb Componentsに夢を見るのか
+iOS8でUIAlertViewがdeprecatedな問題はライブラリ導入で解決しよう
+ELB + Nginx 利用時にRailsでHTTPSアクセスを識別する
+Railsのfind_by_sqlで取得できるモデルからは、select句で指定した名前で値が取れる
+【js】メニュー以外をタッチでナビゲーションのメニューを閉じる
+[Swift] Closure記述方法の一覧
+Djangoのモデルマイグレーション内で、モデルの値を更新する
+耽美系ことうみ無限SSライティング装置
+Kinoma Create: PWM を試すの巻
+Livetで始めるWPF(ざっくり)入門
+スマホサイトでOrbitControls.jsを使う際の注意
 paginationとwhere句などの絞り込み検索の組み合わせ
 three.jsで深度テストのバグっぽいものを無理やり解消する
 macにnginx + php-fpmを導入する際の手順
@@ -75,7 +116,6 @@ HTTPのPOSTされているデータをtcpdumpでキャプチャする
 VirtualBoxをインストール後にVMware上の仮想マシンがネットワークに接続できない場合の対策
 MQTTとは
 MogokでPush時にアクセスエラーが出る
-Ruby tapメソッド
 package.elで導入するSKK
 Node.jsの管理をHomebrewからnodebrewに変える
 tmuxを起動しようとするとexitedになる
@@ -312,7 +352,7 @@ _.forEachをCoffeeScriptで使うときの注意点
 Eclipseのエディタにおける出現箇所の強調を目に優しくする
 Steve Awodey著『Category Theory』を読む　1.4 Examples of Categoriesその2
 Node-RED on Docker - Part1: インストール
-why-run 時に execute リソースのコマンドを実行する
+why-run 時に execute リソースのコマンドを実行する whyrun_safe_execute
 雰囲気メガネをPythonで制御する
 Play Framework 2.3.7 コトハジメ
 VirtualBoxでVM毎のポートフォワーディング設定を一覧表示させてみる
@@ -329,7 +369,7 @@ FuelPHPのformatクラスの改行判定でハマった
 tmlib.js ー CanvasElementにtweenerを設定する 
 sublime text3のショートカット(Mac)
 LevelDBの設計ドキュメント和訳
-why-run 時に ruby_block リソースを実行する
+why-run 時に ruby_block リソースを実行する whyrun_safe_ruby_block
 みんなの為のMySQLまとめ（５）
 Windows 開発環境セットアップ
 Rails + Grape + API Keyの認証
@@ -452,7 +492,7 @@ Steve Awodey著『Category Theory』を読む　1.4 Examples of Categories
 bash > ある範囲の行のデータを列分解する > IFS='\n'とgrepとawkの組合せ
 Chromeアプリ：screen shareを作りたい（エラー編）
 BINDのqueriesログをElasticsearchに保存する
-chef の include_recipe で同じレシピを2度実行する
+chef の include_recipe で同じレシピを2度実行する reinclude_recipe
 selectorの色をゆっくり変化させる方法
 HivemallでMatrix Factorization
 Android Wearモジュールでフレーバーを利用する方法
@@ -475,6 +515,7 @@ Sinatra で手軽にログを吐かせる方法
 「プッシュ通知」「課金」「twitterシェア」を {{{特急実装}}} の話
 Intel Edisonの時刻合わせ（systemd-timesyncd,timedatectl）
 Check! chocolatey で Azure に Windows 作業環境を手早くつくる！
+itamae 入門
 Angular.js備忘録
 JavaScriptテンプレートエンジンまとめ
 NW.js (node-webkit) の開発をすぐ始める
@@ -1257,244 +1298,3 @@ CentOS 6.6にlinuxbrewでnginxをインストールしようとして立ちは�
 AndroidでSQLiteのパフォーマンス比較(DELETE編)
 boot2dockerで初心者がつまずいたこと（マウント関係とか）
 wercker CIでbundle-installがコケて困った時に
-sails.js におけるクライアントサイド（ブラウザ js）でのModel-View bindingについて考える ヽ(ﾟｰﾟ*ヽ)(ﾉ*ﾟｰﾟ)ﾉわぁい
-MySQL 日時ごとの集計まとめ
-swiftで現在地と目的地を結ぶ経路を地図に表示する
-OSX: Terminalを新規に開いてssh_config のサーバーにssh接続する
-Three.js と WebGL と OpenGL ES で三角形を描いてみる
-Swiftで作られたイケてるUIライブラリたち
-bindkey -v でも(ある程度) emacs したい!
-enum を使わず列挙モドキを実現する
-Youtubeの360°動画を見るChrome拡張機能を作りました。
-HAProxy で HTTP ヘッダを操作するメモ（1）〜多段 Proxy 環境でも接続元 IP をオリジナル HTTP ヘッダに挿入する〜
-UIAlertControllerをちょっと便利にするヘルパー（.Alert限定）
-BeagleBone Blackのファームウェアを入れ直す - Part4: SDカードのUbuntu14.04.1とOSXを接続する
-こわくないHaskell入門(初級その2)
-Gitでよく使う設定
-wx.ProgressDialog の AUTO_HIDE では明示的な Destroy() が必要
-わかりやすいコードを書こう！
-load-themeをトグルする
-HoloGraphLibraryをmavenレポジトリからインストールする
-Tomcat8 をリモートデバッグできるようにする
-無線ステレオカメラ映像をOculus Riftで扱うソースコード
-WordPressのテンプレートタグで生成したＨＴＭＬに、クラスをつける方法
-icomplete-modeで入力を完了するためのコマンドをまとめる
-Pythonで機械学習するための環境を構築してみた(MacOS X)
-Raspberry-PiをMacからSSH（モニタ・キーボードなし）でセットアップする
-OSXのlibcはlibSystem.B.dylibなのかも
-UnityでC#ソースコードに日本語リテラルを埋め込むと化ける対策
-jQueryUIの使用について
-iOSでViewControllerを分割するときの私的パターン
-ElmのMVU:自動履歴保存を付けてみる
-Google Cloud StorageのAccessKey
-Ransack(Rails)で複雑なAND条件やOR条件を組み合わせる方法
-UIViewをくり抜く
-写真をピンチ操作で拡大縮小する
-SoftLayerとNetScalerでAuto Scale
-Macでキーロガー
-JPAエンティティのライフサイクルをテキストで書いてみた
-Kinect v2のKinectFusionから色付きの3次元点群と自己位置を得る方法（Visual Studio 2013, OpenCV, C++, Kinect v2）
-Boot2Docker with Fig on Windows
-LocalBroadcastManagerによるサービスとの同期通信
-画面遷移の際に下からViewControllerを出す方法
-Android Auto Designing
-Wordpress + Heroku + PostgreSQL + Amazon S3 = ¥0 / 無料でサイト運営
-Wordpress + Heroku + PostgreSQL + Amazon S3 = ¥0 / 無料でサイト運営
-PlayFrameworkのアプリケーションログにリクエスト情報を出力する
-Java Web フレームワーク Spark でシンプルなファイルダウンロードサーバーを作ってみる
-fstabによる自動マウントが失敗したときのデバグ方法
-Ubuntu14.04でRuby on Rails事始め
-Org-modeとnotify-sendで、一歩進んだスケジュール管理をしよう
- Play Framework で 206 Partial Content を返したい
-phpDocumentor 2インストール手順
-AWS SDK for Goを使ってS3にファイルアップロード
-wikipediaのredirectデータを使ったお手軽名寄せ辞書作成
-Octopress + Github Pagesで無料ブログ
-DockerでPhabricatorを動かす、ついでにDocker Hub Registryにも登録する
-【Photoshop JS】差し替えレベルの画像処理を全自動化
-td-agent2のfluent-pluginをbundlerで管理
-Java8でRhinoエンジンでJavaScriptを実行する準備
-【Unity】iOS/Android用にビルドしたらtextureが表示されない??
-Docker コンテナ内でタスクを cron 起動する
-Pepper のカメラ映像をライブ配信する実験 その2
-PostGISラスタの仕様
-Androidでtouchmoveが連続的に取得できない問題
-スマホでも通用するGoogle Mapsで中心にCrosshairを配置する方法
-BeagleBone Blackのファームウェアを入れ直す - Part3: SDカードのUbuntu14.04.1の無線LAN設定
-bundleしてるgemにcdする。pecoで絞り込みつつ
-S3の操作
-SipHashについてのメモ
-UISearchBarのクリアボタン表示を制御する
-git管理下のファイル内の文字列を一括置換するワンライナー
-【PHP】改行コードの削除
-jenkinsを立ち上げたときに、nginxでやっておく設定：メモ
-2月がカレンダーに4行7列ですっぽりハマる年を求めるスクリプト
-Railsにフォロー機能などを実装してみる
-これで納得、Apple Developerの証明書の関連図と手順書（超簡易版）
-Rakeタスク実行前に別タスクを実行する書き方
-【javascript】"1" == trueがtrueになる理由
-任意の単位での切り捨て、切り上げ、四捨五入
-小さなお友だちの為の　MacOsXでBASIC #4 サインカーブ
-Magatama.jsがリリースされたので使ってみる
-今年も1月終わったし DCI の話しようか
-latexmkを使う
-CordovaでのGradleによるiOS Xcode buildからの〜testFlight!!! 日本語のプロジェクト名もOK
-Yosemite(Mac OSX 10.10.1)でbrew installしたphantomJSがcrashしたときの対処法
-Common Lispでiteratorもどき
-hubot + Twilioで寝ている社長を無理矢理起こす
-GistでClojureを公開する
-DNSサーバ構築手順(BIND 9.10.1-P1ソースインストール + 内部向けDNSキャッシュサーバ構築)
-mrubyの古いコードが動かなかった時の対応
-小さなお友だちの為の　MacOsXでBASIC #3
-小さなお友だちの為の　MacOsXでBASIC #2
-Railsのrake db:xxxコマンドでtable doesn't existのエラーが出る際の対処
-Unity+iOSでMemoryWarning発生時にSystem.GCとかResources.Unloadとかさせる
-./activator eclipse でエラーしたとき
-Forget me not...
-Ansibleでよく使ってるタスクとかちょっとしたTips
-テスト用ダミーデータや例示用ドメインのリンク
-循環複雑度を測定してくれるツールを作りました #Golang
-ワールドファイルのはなし
-レイアウトファイルだけで簡単に吹き出しを作る方法
-Travis CIで自動テスト
-WinRT (Windows Storeアプリ)でAsync/Await HTTP Clientサンプルを作ってみた
-Linux - シェルスクリプトメモ
-小さなお友だちの為の　MacOsXでBASIC #1
-Markdownでスライドを作るためのツールをJavaFXで
-iptables(v4)初期設定
-TitaniumでMigrationを行う
-DataContractManagerによるオブジェクトのXML Serialize
-QGraphicsTextItemで任意の文字の座標を取得する
-enchant.jsとtmlib.jsを使ったゲーム作成フレームワーク「enforce」チュートリアル（１５）弾幕を作る
-[Ruby] 配列からBlockで評価した結果の最初にマッチした要素を取り出すにはArray#find
-GitLab CE OmnibusバンドルのnginxにIPアクセス制限機能を付ける
-UITableViewCellの選択色をStoryboard上で設定する
-Leafletを使ったWebGIS始めました。
-AWS Route53 逆引きゾーンと正引きゾーン作成手順
-「環境とクロージャを用いた、より効率的な関数型プログラミング言語の定義＆実装の仕方の例」をHaskellで実装してみた（その2）
-「環境とクロージャを用いた、より効率的な関数型プログラミング言語の定義＆実装の仕方の例」をHaskellで実装してみた
-多次元データを複数のグラフや地図に連携して表示するdc.jsを使ってみる
-テスト投稿
-BeagleBone Blackのファームウェアを入れ直す - Part2: SDカードのUbuntu14.04.1へPuttyからシリアル接続する
-Windows環境においてBitbucketへのSSH接続方法
-指定した日付は第何週なのか調べてみる
-CLLocationの2地点間の中間地点の座標を求める
-第2回 mixi iOS Trainingまとめ
-Railsで条件検索
-プロビジョニングツールにおける設定ファイルの管理方法について
-PerlでSQLiteのUTF8を自動的に扱う
-[Apache][小ネタ] 特定のURLのみ、Basic認証を外す 
-dockerのメトリクスをfluentdで収集してみる
- 64ビットモードで32ビットDLLを呼び出せない
-Youtube用のChrome拡張機能を作る際の注意点(備忘録)
-GAE/Goのテストを実行するために必要なこと
-cdコマンドに"戻る"機能を追加する
-Web開発時のスクリーンショット証跡取得に「Chrome+Google Drive拡張機能」が便利
-指定した日付が何曜日か取得してみた
-ジェネリック制約で new(x) はできないか？
-hubot-scriptsを使おう！
-Serverspec でコマンド実行のエビデンスを取得
-Winshot紹介
-自分用EC2向けコマンドライン
-phpでワンライナー
-Pythonの継承とAbstract Base Class
-Mock化したクラスのブレークポイントが機能しない場合の対応策
-デリゲート引数のオーバーロード
-kdumpを使えないEC2でnetconsoleを活用してkernel panic時のstack traceを取得する
-Redisデータバックアップ方法
-Compass V1.0 Cross-Browser Support Configuration の書式を確認する
-英語圏での入力チェックのエラーメッセージについて
-SAStruts + S2JDBC + SQLServerで指定テーブルのIDENTITYを取得する
-BeagleBone Blackのファームウェアを入れ直す - Part1: Debian 7.5とWindows7作業環境
-openFileOutputではSDカードに書き込めないので FileOutputStreamを使う。
-apkファイルからjavaソースコードを見られるようになるまで
-VagrantでのPython3のインストール
-Windows での IPython 実行のショートカットと起動時の設定
-gitでmasterへのpushを防ぐhook
-#PPx 開いているタブをListfileで表示してインクリメンタルサーチ
-golang 1.4で追加されたtestingの便利機能(テストの初期化とお片づけ)
-カメラモードのせいで、2Dのタッチ操作がずっとできなかった件
-Azureクラウドサービスのプロジェクトテンプレートを作成する
-【swift】そういえばClassとStructの違いは？
-Netbeansのデバッグ機能をCakePHPで使う
-Chromeでスクロールバーを細くする
-AWS API のログフォーマットを変更する
-Android5.0で`Failure [INSTALL_FAILED_DUPLICATE_PERMISSION perm=com.app.name.permission.C2D_MESSAGE pkg=com.app.name]`と表示されたときの対応
-GCC 拡張アセンブラ構文
-静的ページと動的ページの簡単に見分ける方法について
-【初心者】生まれて初めてプログラミングをする文系人間のためのチュートリアル
-VagrantでPermission Denied系のエラーが出る場合 & 存在するはずのboxが見つからないと言われる場合
-Scalaでの例外処理
-test
-乃木坂46の公式動画がyoutubeにアップされたら自動でtweetする
-Vagrantの導入メモ～仮想マシンへの接続まで
-Spring-Sessionを使ってみた
-モジュールのキャッシュコントロール
-go mobileをdockerでビルドする
-pillowをインストール
-poderosaのマクロ機能でssh接続
-[Unity] モデルをマスクするボックスを作るシェーダ
-ICU を使って UTF-8 の文字列から1文字ずつ取り出す
-PHP基礎 データベース
-クリップボード履歴の管理ソフト「Clibor」が便利
-URIをRESTっぽくするアレ
-Hugo + Github Pages + Wercker CI = ¥0（無料）でコマンド 1 発（自動化）でサイト・ブログを公開・運営・分析・収益化
-formのplaceholderに色つけたい
-AndroidとiOSのアプリバージョン周りについてまとめてみた
-Swiftでファイル分割後にエラーしたら疑うところ
-関数合成むずかしいです。
-アイコンを入れるのが楽になるAndroid Drawable Importerの話
-HTML5 Conference 2015に参加してきました #html5j
-Effective Rubyのcatch/throwをproduct/findで書き換える
-【Photoshop JS】スマートオブジェクト・レイヤーを開く
-SoftLayerのAuto Scale Groupを一覧するスクリプト
-Plone 4 をデプロイする方法
-raspberry piでgit最新版を使う
-MacのStartup Manager(ブートメニュー)でアイコンを表示する方法
-Macの起動音をオフにする方法
-クラスの中でなぜか複数かメソッドが呼ばれる
-gitlabを7.7.xにアップデートしたらaccept merge requestやメール送信ができなくなった
-bc > 8.0の三乗根の計算 > e(1/3*l(8.0))
-ListViewのカスタムViewを作る時、Adapterの更新は、更新用メソッドを作った方がいいと思う
-streaming の勘所メモ
-ゲーム開発におけるクラスの基礎設計
-ターゲット別に処理を分けたい
-ShinobiLayer: Bare Metal ServerでRAID構成を確認する
-Chrome拡張 | soku_qiita - 即聞いた | Qiita のユーザー・タグ指定検索をマウスを使わずに素早く実行する #chrome_extension
-Blenderの中のPythonで環境変数を参照するには
-CircleCI で Playframework のプロジェクトを回そうとしたら OOM Killer に殺される件
-SSL証明書の有効期限の確認をWindowsで行う
-ICU の BreakIterator を使って書記素を1つずつ取り出す
-json4sパースベストプラクティス
-chefspec で ruby_block 内をテストする
-chef の libraries で attributes を設定する
-rspec3 の stub でオリジナルを呼ぶ
-DotNetNukeでサイト構築 - 2：DNNのダウンロード、アップロード、インストール
-Git | Emoji を利用した Git の commit フォーマットの一例 #git #emoji
-空間構造のあるベイズモデル
-CodeceptionでのMockを使ったFacadeのテスト / Using Mock to test Facade with Codeception for Laravel
-本当にあった怖い話〜IPアドレスが消えた〜
-Vim に惚れるシーン（全てのソースファイルの uses 部に特定のモジュールを追加する）
-JenkinsのGit Pluginでリポジトリからのプッシュ通知を受け取る
-BrowserSync使って自IPでサーバー立ち上げてwatchしてreloadするgulpfile
-MacでRmagickをインストール
-sshポート番号変更用のワンライナー
-ghcmod: ghc-mod is not executable
-elscreenの各タブに任意のバッファを一括設定する
-ソースコードやドキュメントを速攻で参照するctrlp-quickref.vimを作ってみた
-Vagrantのshare folderが遅い時はNFSを使うといいです
-Groovyスクリプトを配布する1つの方法
-Example 02: ボタンが押されている間、LEDを点ける
-DNSのキャッシュをクリアする
-Rails入門を終えたので今後の課題メモ
-jQueryとBootstrapのCDN(Content Delivery Network)
-古いDebian etchやlennyの「GHOST」（CVE-2015-0235）脆弱性対策
-('%.20g' % 1.001r).to_r != 1.001r
-serverspecのpackageリソースはrpmコマンドでテストをする
-Knockout.jsでimgタグsrc属性にデータバインドする時のアンチパターン
-RailsでISO8601
-tbpgr が利用している Chrome Extension 一覧 #chrome_extension
-Scssのcolor palette 管理についてのメモ
-IROS 2014 Kinect Challengeに優勝したRTAB-Mapを実行してみた
-[ERROR] /usr/libexec/mysqld: Incorrect information in file: './hoge/hoge.frm' からの復旧
-【iOS】TwitterKitで画像投稿
