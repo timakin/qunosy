@@ -3,6 +3,7 @@ import csv
 from gensim import corpora, matutils, models
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
+from collections import Counter
 
 class MakeDictWithGensim:
   def __init__(self, csvName):
@@ -73,7 +74,23 @@ if __name__ == '__main__':
   
   for label in label_predict_user:
     label_predicted_list_user.append(label)
-  for label in label_predict_latest:
-    label_predicted_list_latest.append(label)
-  print(label_predicted_list_user)
-  print(label_predicted_list_latest)
+  counter = Counter(label_predicted_list_user)
+  best_fav_catogory = counter.most_common()[0][0]
+  keys = []
+  labels = []
+  i = 0
+  for (key, label) in enumerate(label_predict_latest):
+    if label == best_fav_catogory and i < 10:
+      keys.append(key)
+      labels.append(label)
+      i = i+1
+  f = open('src/txt/latest.txt', 'r', encoding='utf-8')
+  rows = csv.reader(f)
+  articles = []
+  for row in rows:
+    articles.append(row)
+  for key in keys:
+    print(articles[key])
+
+  #print(label_predicted_list_user)
+  #print(label_predicted_list_latest)
