@@ -67,5 +67,13 @@ if __name__ == '__main__':
 
   label_predict_user = estimator.predict(user_data)
   label_predict_latest = estimator.predict(latest_data)
-  print(label_predict_user)
-  print(label_predict_latest)
+  #print(label_predict_user)
+  label_predicted_list_user = []
+  label_predicted_list_latest = []
+  
+  for label in label_predict_user:
+    label_predicted_list_user.append(label)
+  for label in label_predict_latest:
+    label_predicted_list_latest.append(label)
+  print(label_predicted_list_user)
+  print(label_predicted_list_latest)
