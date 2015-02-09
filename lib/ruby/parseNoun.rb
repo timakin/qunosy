@@ -49,4 +49,8 @@ if __FILE__ == $0
   texts = mecab.parse_file("src/txt/user.txt")
   noun = mecab.parse_noun(texts)
   mecab.to_csv("mecabNounUser", noun)
+
+  texts = mecab.parse_file("src/txt/latest.txt")
+  noun = mecab.parse_noun(texts)
+  mecab.to_csv("mecabNounLatest", noun)
 end

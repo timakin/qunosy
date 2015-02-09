@@ -3,6 +3,7 @@ import csv
 from gensim import corpora, matutils, models
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
+from collections import Counter
 
 class MakeDictWithGensim:
   def __init__(self, csvName):
@@ -24,10 +25,10 @@ class MakeDictWithGensim:
 
   def makeDict(self, txtName):
     dictionary = corpora.Dictionary(self.dict_from_nouncsv)
-    if txtName == "qiitadic":
-      dictionary.filter_extremes(no_below=3, no_above=0.2)
-    else:
+    if txtName == "qiitadicUser":
       dictionary.filter_extremes(no_below=2, no_above=0.2)
+    else:
+      dictionary.filter_extremes(no_below=3, no_above=0.2)
     #  print(dictionary.token2id)
     dictionary.save_as_text("src/txt/"+txtName+".txt")
     #dictionary.save_as_text("src/txt/qiitadicUser.txt")
@@ -50,6 +51,8 @@ if __name__ == '__main__':
   whole_data = maked.vec_to_data("qiitadic")
   makedUser = MakeDictWithGensim('mecabNounUser')
   user_data = makedUser.vec_to_data('qiitadicUser')
+  makedLatest = MakeDictWithGensim('mecabNounLatest')
+  latest_data = makedLatest.vec_to_data('qiitadicLatest')
 
   estimator = RandomForestClassifier()
   data_train = []
@@ -61,10 +64,33 @@ if __name__ == '__main__':
 
   estimator.fit(data_train, label_train)
   #print(estimator.score(data_test_s, label_test_s))
+  #estimator.fit(data_train, label_train)
+
+  label_predict_user = estimator.predict(user_data)
+  label_predict_latest = estimator.predict(latest_data)
+  #print(label_predict_user)
+  label_predicted_list_user = []
+  label_predicted_list_latest = []
   
+  for label in label_predict_user:
+    label_predicted_list_user.append(label)
+  counter = Counter(label_predicted_list_user)
+  best_fav_catogory = counter.most_common()[0][0]
+  keys = []
+  labels = []
+  i = 0
+  for (key, label) in enumerate(label_predict_latest):
+    if label == best_fav_catogory and i < 10:
+      keys.append(key)
+      labels.append(label)
+      i = i+1
+  f = open('src/txt/latest.txt', 'r', encoding='utf-8')
+  rows = csv.reader(f)
+  articles = []
+  for row in rows:
+    articles.append(row)
+  for key in keys:
+    print(articles[key])
 
-#  
-#  estimator.fit(data_train, label_train)
-
-  label_predict = estimator.predict(user_data)
-  print(label_predict)
+  #print(label_predicted_list_user)
+  #print(label_predicted_list_latest)

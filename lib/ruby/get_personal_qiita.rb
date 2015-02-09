@@ -32,7 +32,7 @@ class PersonalQiita
     for pagenum in 1..page do
       url = open("http://qiita.com/api/v2/items?page=#{pagenum}&per_page=#{per}").read
       latest_title = get_value_from_raw_json(url)
-      to_txt("article", latest_title)
+      to_txt("latest", latest_title)
     end
   end
 end
