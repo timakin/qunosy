@@ -15,10 +15,10 @@ module Qunosy
       return titles
     end 
 
-    def to_txt(name, titles)
-      f = open(File.expand_path("../../src/txt/#{name}.txt", __FILE__), "a") 
-      titles.each do |title|
-        f.puts title
+    def to_txt(name, items)
+      f = open(File.expand_path("../../../src/txt/#{name}.txt", __FILE__), "a") 
+      items.each do |item|
+        f.puts item
       end
       f.close
     end 
