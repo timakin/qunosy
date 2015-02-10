@@ -19,6 +19,7 @@ func main() {
             if c.Args()[0] == "reload" {
                 reload := exec.Command("sh", absPath + "/reload.sh", c.Args()[1])
                 reloadOut, err := reload.Output()
+                fmt.Println("Reloading qiita log ...")
                 if err != nil {
                     fmt.Println(err.Error())
                     return
