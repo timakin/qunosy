@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import csv
+import os
 from gensim import corpora, matutils, models
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.cross_validation import train_test_split
@@ -7,8 +8,9 @@ from collections import Counter
 
 class MakeDictWithGensim:
   def __init__(self, csvName):
-    self.dict_from_nouncsv = self.readNounCsv("src/csv/"+csvName+".csv")
- 
+    self.base = os.path.dirname(os.path.abspath(__file__))
+    self.dict_from_nouncsv = self.readNounCsv(os.path.normpath(os.path.join(self.base, "../../src/csv/"+csvName+".csv")))
+
   def readNounCsv(self, file):
     rawStopList = 'for a of the and to in [ ] + - , . ` / : ; | ( ) 〜 こと ごと １ & お ~ ... () :: 0235 " \' !'
     stoplist = set(rawStopList.split())
@@ -28,7 +30,7 @@ class MakeDictWithGensim:
       dictionary.filter_extremes(no_below=2, no_above=0.2)
     else:
       dictionary.filter_extremes(no_below=3, no_above=0.2)
-    dictionary.save_as_text("src/txt/"+txtName+".txt")
+    dictionary.save_as_text(os.path.normpath(os.path.join(self.base, "../../src/txt/"+txtName+".txt")))
     return dictionary
 
   def vec_to_data(self,txtName):
@@ -79,10 +81,18 @@ if __name__ == '__main__':
       i = i+1
 
   # Display recommended article titles
-  f = open('src/txt/latest.txt', 'r', encoding='utf-8')
+  base = os.path.dirname(os.path.abspath(__file__))
+  f = open(os.path.normpath(os.path.join(base, '../../src/txt/latest.txt')), 'r', encoding='utf-8')
   rows = csv.reader(f)
   articles = []
   for row in rows:
     articles.append(row)
+  f2 = open(os.path.normpath(os.path.join(base, '../../src/txt/latest_url.txt')), 'r', encoding='utf-8')
+  rows = csv.reader(f2)
+  urls = []
+  for row in rows:
+    urls.append(row)
   for key in keys:
+    print("======================================================")
     print(articles[key])
+    print(urls[key])

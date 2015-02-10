@@ -5,35 +5,37 @@ require 'csv'
 
 module Qunosy
   class PersonalQiita
-    def get_value_from_raw_json(url)
+    def get_value_from_raw_json(url, column)
       json_data = JSON.parse(url)
-      titles = Array.new()    
+      items = Array.new()    
 
       json_data.each do |data|
-        titles << data["title"]
+        items << data[column]
       end
-      return titles
-    end 
+      return items
+    end
 
-    def to_txt(name, titles)
-      f = open("src/txt/#{name}.txt", "a") 
-      titles.each do |title|
-        f.puts title
+    def to_txt(name, items)
+      f = open(File.expand_path("../../../src/txt/#{name}.txt", __FILE__), "a") 
+      items.each do |item|
+        f.puts item
       end
       f.close
     end 
 
     def user_with_directlink(user)
       url = open("http://qiita.com/api/v2/users/#{user}/stocks").read
-      fav_title = get_value_from_raw_json(url)
+      fav_title = get_value_from_raw_json(url, "title")
       to_txt("user", fav_title)
     end 
 
     def articles_with_directlink(page, per)
       for pagenum in 1..page do
         url = open("http://qiita.com/api/v2/items?page=#{pagenum}&per_page=#{per}").read
-        latest_title = get_value_from_raw_json(url)
+        latest_title = get_value_from_raw_json(url, "title")
+        latest_url = get_value_from_raw_json(url, "url")
         to_txt("latest", latest_title)
+        to_txt("latest_url", latest_url)
       end
     end
   end
