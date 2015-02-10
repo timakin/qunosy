@@ -17,9 +17,9 @@ func main() {
     app.Action = func(c *cli.Context) { // コマンド実行時の処理
         if len(c.Args()) > 1 {
             if c.Args()[0] == "reload" {
+                fmt.Println("Reloading qiita log ...")
                 reload := exec.Command("sh", absPath + "/reload.sh", c.Args()[1])
                 reloadOut, err := reload.Output()
-                fmt.Println("Reloading qiita log ...")
                 if err != nil {
                     fmt.Println(err.Error())
                     return
